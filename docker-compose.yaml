@@ -1,0 +1,40 @@
+version: '3.8'
+
+networks:
+    nuxt:
+        driver: bridge
+
+services:    
+    applications:
+        build: 
+            context: ./
+            target: development
+            dockerfile: Dockerfile        
+        container_name: nuxt-app     
+        command: ["npm", "run", "dev:host"]
+        environment:
+            MYSQL_HOST: mysql
+            MYSQL_USER: mike
+            MYSQL_PASSWORD: mike:0989232364
+            MYSQL_DB: resume                        
+        image: resume/applications
+        networks:
+            - nuxt 
+        ports:
+            - 8000:8000
+        tty: true        
+        user: 1000:1000
+        volumes:
+            - ./:/usr/app        
+        working_dir: /usr/app
+
+    mysql:
+        image: mysql:8.0
+        volumes:
+            - todo-mysql-data:/var/lib/mysql
+        environment: 
+            MYSQL_ROOT_PASSWORD: mike:0989232364
+            MYSQL_DATABASE: resume    
+        
+volumes:
+    todo-mysql-data:            
