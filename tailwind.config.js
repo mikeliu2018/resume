@@ -7,8 +7,8 @@ module.exports = {
         DEFAULT: '1rem',
         sm: '3rem',
         lg: '6rem',
-        xl: '10rem',
-        '2xl': '20rem'
+        xl: '8rem',
+        '2xl': '16rem'
       }
     }
   },

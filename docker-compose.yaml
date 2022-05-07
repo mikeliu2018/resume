@@ -13,10 +13,10 @@ services:
         container_name: nuxt-app     
         command: ["npm", "run", "dev:host"]
         environment:
-            MYSQL_HOST: mysql
-            MYSQL_USER: mike
-            MYSQL_PASSWORD: mike:0989232364
-            MYSQL_DB: resume                        
+            MYSQL_HOST: ${MYSQL_HOST}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_DB: resume                                                            
         image: resume/applications
         networks:
             - nuxt 
